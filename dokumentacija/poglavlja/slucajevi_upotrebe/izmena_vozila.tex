@@ -1,0 +1,52 @@
+\subsection{Izmena podataka o vozilu}
+
+\subsubsection{Osnovne informacije}
+
+\begin{itemize}
+    \item \textbf{Oznaka:} SU 2
+    \item \textbf{Naziv:} Izmena podataka o vozilu
+    \item \textbf{Primarni akter:} Zaposleni
+    \item \textbf{Cilj:} Omogućiti zaposlenom da izmeni postojeće podatke o vozilu koji su evidentirani u informacionom sistemu.
+\end{itemize}
+
+\subsubsection{Preduslovi}
+
+\begin{itemize}
+    \item Zaposleni je prijavljen na informacioni sistem.
+    \item Zaposleni ima odgovarajuća prava za upravljanje vozilima.
+    \item Vozilo čiji se podaci menjaju već postoji u sistemu.
+\end{itemize}
+
+\subsubsection{Osnovni tok događaja}
+
+\begin{enumerate}
+    \item Zaposleni pronalazi vozilo čije podatke želi da izmeni.
+    \item Zaposleni bira opciju za izmenu podataka o vozilu.
+    \item Sistem prikazuje trenutno evidentirane podatke o izabranom vozilu.
+    \item Zaposleni menja dozvoljene željene podatke (registarsku oznaku, cenu iznajmljivanja po danu, status).
+    \item Zaposleni potvrđuje izmenu podataka.
+    \item Sistem proverava ispravnost i potpunost unetih podataka.
+    \item Sistem čuva izmenjene podatke o vozilu.
+    \item Sistem prikazuje poruku o uspešno izvršenoj izmeni.
+\end{enumerate}
+
+\subsubsection{Alternativni tokovi}
+
+\begin{itemize}
+    \item \textbf{A1 - Neispravni ili nepotpuni podaci:}
+    Ukoliko neki od obaveznih podataka nije unet ili uneti podaci nisu u odgovarajućem formatu, sistem prikazuje poruku o grešci i zahteva od zaposlenog da ispravi podatke. Nakon ispravke, tok se nastavlja od koraka 6.
+
+    \item \textbf{A2 - Registarska oznaka je već zauzeta:}
+    Ukoliko je zaposleni uneo registarsku oznaku koja je već dodeljena drugom vozilu u sistemu, sistem prikazuje odgovarajuću poruku o grešci. Zaposleni može da unese drugu registarsku oznaku.
+
+    \item \textbf{A4 - Odustajanje od izmene:}
+    Zaposleni može da odustane od izmene pre potvrde. Sistem prekida postupak i zadržava prethodno sačuvane podatke o vozilu.
+\end{itemize}
+
+\subsubsection{Postuslovi}
+
+\begin{itemize}
+    \item Podaci o izabranom vozilu su uspešno ažurirani.
+    \item Izmene su sačuvane u informacionom sistemu.
+    \item Status vozila ostaje nepromenjen.
+\end{itemize}

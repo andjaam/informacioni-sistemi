@@ -1,0 +1,46 @@
+
+\subsection{Pretraga vozila}
+
+\subsubsection{Osnovne informacije}
+
+\begin{itemize}
+    \item \textbf{Oznaka:} SU 4
+    \item \textbf{Naziv:} Pretraga vozila
+    \item \textbf{Primarni akter:} Zaposleni
+    \item \textbf{Cilj:} Omogućiti zaposlenom da pronađe vozila u informacionom sistemu na osnovu zadatih kriterijuma pretrage.
+\end{itemize}
+
+\subsubsection{Preduslovi}
+
+\begin{itemize}
+    \item Zaposleni je prijavljen na informacioni sistem.
+    \item Zaposleni ima odgovarajuća prava za pregled evidencije vozila.
+\end{itemize}
+
+\subsubsection{Osnovni tok događaja}
+
+\begin{enumerate}
+    \item Zaposleni pristupa sekciji za upravljanje vozilima.
+    \item Sistem prikazuje listu evidentiranih vozila i dostupne kriterijume za pretragu.
+    \item Zaposleni unosi jedan ili više kriterijuma za pretragu (registarska oznaka, marka, model, godište, kategorija ili status vozila).
+    \item Zaposleni pokreće pretragu.
+    \item Sistem pretražuje vozila na osnovu zadatih kriterijuma.
+    \item Sistem prikazuje listu vozila koja odgovaraju zadatim kriterijumima.
+    \item Zaposleni može da izabere vozilo sa liste i pregleda njegove detaljne podatke.
+\end{enumerate}
+
+\subsubsection{Alternativni tokovi}
+
+\begin{itemize}
+    \item \textbf{A1 - Nema rezultata pretrage:}
+    Ukoliko nijedno vozilo ne odgovara zadatim kriterijumima, sistem prikazuje odgovarajuću poruku da vozila nisu pronađena.
+
+    \item \textbf{A2 - Neispravni kriterijumi pretrage:}
+    Ukoliko su uneti kriterijumi u neodgovarajućem formatu, sistem prikazuje poruku o grešci i zahteva od zaposlenog da ispravi unos.
+\end{itemize}
+
+\subsubsection{Postuslovi}
+
+\begin{itemize}
+    \item Sistem prikazuje vozila koja odgovaraju zadatim kriterijumima.
+\end{itemize}

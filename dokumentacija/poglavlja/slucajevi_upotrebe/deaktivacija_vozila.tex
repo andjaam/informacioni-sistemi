@@ -1,0 +1,54 @@
+\subsection{Deaktivacija vozila}
+
+\subsubsection{Osnovne informacije}
+
+\begin{itemize}
+    \item \textbf{Oznaka:} SU 3
+    \item \textbf{Naziv:} Deaktivacija vozila
+    \item \textbf{Primarni akter:} Zaposleni
+    \item \textbf{Cilj:} Omogućiti zaposlenom da deaktivira vozilo koje više nije predviđeno za iznajmljivanje.
+\end{itemize}
+
+\subsubsection{Preduslovi}
+
+\begin{itemize}
+    \item Zaposleni je prijavljen na informacioni sistem.
+    \item Zaposleni ima odgovarajuća prava za upravljanje vozilima.
+    \item Vozilo koje se deaktivira postoji u sistemu.
+    \item Vozilo trenutno nije iznajmljeno.
+\end{itemize}
+
+\subsubsection{Osnovni tok događaja}
+
+\begin{enumerate}
+    \item Zaposleni pristupa sekciji za upravljanje vozilima.
+    \item Zaposleni pronalazi vozilo koje želi da deaktivira.
+    \item Zaposleni bira opciju za deaktivaciju vozila.
+    \item Sistem prikazuje podatke o izabranom vozilu i traži potvrdu deaktivacije.
+    \item Zaposleni potvrđuje deaktivaciju.
+    \item Sistem proverava da li je vozilo trenutno iznajmljeno.
+    \item Sistem menja status vozila u \texttt{NEDOSTUPAN}.
+    \item Sistem čuva izmenjeni status vozila.
+    \item Sistem prikazuje poruku o uspešno izvršenoj deaktivaciji.
+\end{enumerate}
+
+\subsubsection{Alternativni tokovi}
+
+\begin{itemize}
+    \item \textbf{A1 - Vozilo je trenutno iznajmljeno:}
+    Ukoliko je vozilo trenutno iznajmljeno, sistem obaveštava zaposlenog da deaktivacija nije moguća.
+
+    \item \textbf{A2 - Zaposleni odustaje od deaktivacije:}
+    Ukoliko zaposleni odustane od deaktivacije, sistem prekida postupak i ne menja status vozila.
+
+    \item \textbf{A4 - Vozilo je već deaktivirano:}
+    Ukoliko vozilo već ima status \texttt{NEDOSTUPAN}, sistem obaveštava zaposlenog da je vozilo već deaktivirano i ne vrši dodatne izmene.
+\end{itemize}
+
+\subsubsection{Postuslovi}
+
+\begin{itemize}
+    \item Status vozila je promenjen u \texttt{NEDOSTUPAN}.
+    \item Vozilo više nije dostupno za nove rezervacije i iznajmljivanja.
+    \item Podaci o vozilu i njegova prethodna istorija iznajmljivanja ostaju sačuvani u sistemu.
+\end{itemize}

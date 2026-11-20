@@ -1,0 +1,53 @@
+\section{Dodavanje novog vozila}
+
+\subsection{Osnovne informacije}
+
+\begin{itemize}
+    \item \textbf{Oznaka:} SU 1
+    \item \textbf{Naziv:} Dodavanje novog vozila
+    \item \textbf{Primarni akter:} Zaposleni
+    \item \textbf{Cilj:} Omogućiti zaposlenom da unese podatke o novom vozilu i evidentira ga u informacionom sistemu.
+\end{itemize}
+
+\subsection{Preduslovi}
+
+\begin{itemize}
+    \item Zaposleni je prijavljen na informacioni sistem.
+    \item Zaposleni ima odgovarajuća prava za upravljanje vozilima.
+    \item Vozilo koje se dodaje nije već evidentirano u sistemu.
+\end{itemize}
+
+\subsection{Osnovni tok događaja}
+
+\begin{enumerate}
+    \item Zaposleni pristupa sekciji za upravljanje vozilima.
+    \item Zaposleni bira opciju za dodavanje novog vozila.
+    \item Sistem prikazuje formular za unos podataka o vozilu.
+    \item Zaposleni unosi potrebne podatke o vozilu (marka, model, godište, registarska oznaka, kategorija, cena iznajmljivanja po danu).
+    \item Zaposleni potvrđuje unos podataka.
+    \item Sistem proverava ispravnost i potpunost unetih podataka.
+    \item Sistem proverava da li u evidenciji već postoji vozilo sa unetom registarskom oznakom.
+    \item Sistem čuva podatke o novom vozilu.
+    \item Sistem prikazuje poruku o uspešnom dodavanju vozila.
+\end{enumerate}
+
+\subsection{Alternativni tokovi}
+
+\begin{itemize}
+    \item \textbf{A1 - Neispravni ili nepotpuni podaci:} 
+    Ukoliko neki od obaveznih podataka nije unet ili uneti podaci nisu u odgovarajućem formatu, sistem prikazuje poruku o grešci i zahteva od zaposlenog da ispravi podatke. Nakon ispravke, tok se nastavlja od koraka 5.
+
+    \item \textbf{A2 - Vozilo već postoji:} 
+    Ukoliko u sistemu već postoji vozilo sa unetom registarskom oznakom, sistem obaveštava zaposlenog da vozilo nije moguće dodati. Zaposleni može da izmeni registarsku oznaku ili odustane od dodavanja.
+
+    \item \textbf{A3 - Odustajanje od dodavanja:} 
+    Zaposleni može da odustane od dodavanja vozila pre potvrde unosa. Sistem prekida postupak i ne čuva unete podatke.
+\end{itemize}
+
+\subsection{Postuslovi}
+
+\begin{itemize}
+    \item Novo vozilo je uspešno evidentirano u sistemu.
+    \item Podaci o vozilu su sačuvani i dostupni za pregled i dalje upravljanje.
+    \item Vozilu je dodeljen početni status \texttt{DOSTUPNO}, ukoliko ispunjava uslove za iznajmljivanje.
+\end{itemize}

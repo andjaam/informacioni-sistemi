@@ -1,0 +1,53 @@
+\subsection{Evidentiranje tehničke neispravnosti vozila}
+
+\subsubsection{Osnovne informacije}
+
+\begin{itemize}
+    \item \textbf{Oznaka:} SU 5
+    \item \textbf{Naziv:} Evidentiranje tehničke neispravnosti vozila
+    \item \textbf{Primarni akter:} Zaposleni
+    \item \textbf{Cilj:} Omogućiti zaposlenom da evidentira tehničku neispravnost vozila
+
+\subsubsection{Preduslovi}
+
+\begin{itemize}
+    \item Zaposleni je prijavljen na informacioni sistem.
+    \item Zaposleni ima odgovarajuća prava za upravljanje vozilima.
+    \item Vozilo za koje se evidentira neispravnost postoji u sistemu.
+\end{itemize}
+
+\subsubsection{Osnovni tok događaja}
+
+\begin{enumerate}
+    \item Zaposleni pristupa sekciji za upravljanje vozilima.
+    \item Zaposleni pronalazi vozilo kod kojeg je uočena tehnička neispravnost.
+    \item Zaposleni bira opciju za evidentiranje tehničke neispravnosti.
+    \item Sistem prikazuje formular za unos podataka o neispravnosti.
+    \item Zaposleni unosi opis uočene neispravnosti i ostale relevantne informacije.
+    \item Zaposleni potvrđuje unos.
+    \item Sistem proverava ispravnost i potpunost unetih podataka.
+    \item Sistem evidentira tehničku neispravnost vozila.
+    \item Sistem menja status vozila u \texttt{NEISPRAVNO}.
+    \item Sistem prikazuje poruku o uspešno evidentiranoj neispravnosti.
+\end{enumerate}
+
+\subsubsection{Alternativni tokovi}
+
+\begin{itemize}
+    \item \textbf{A1 - Nepotpuni ili neispravni podaci:}
+    Ukoliko zaposleni nije uneo obavezne podatke ili su oni u neodgovarajućem formatu, sistem prikazuje poruku o grešci i zahteva ispravku unosa.
+
+    \item \textbf{A2 - Zaposleni odustaje od evidentiranja:}
+    Ukoliko zaposleni odustane od postupka pre potvrde unosa, sistem prekida postupak i ne čuva podatke o neispravnosti.
+
+    \item \textbf{A3 - Vozilo je trenutno iznajmljeno:}
+    Ukoliko je vozilo trenutno iznajmljeno, sistem evidentira prijavljenu neispravnost, ali ne menja status iznajmljenog vozila pre njegovog povratka. Zaposleni dobija informaciju da je potrebno izvršiti proveru vozila prilikom povratka u agenciju.
+\end{itemize}
+
+\subsubsection{Postuslovi}
+
+\begin{itemize}
+    \item Podaci o tehničkoj neispravnosti su sačuvani u sistemu.
+    \item Vozilo koje nije trenutno iznajmljeno dobija status \texttt{NEISPRAVAN}.
+    \item Vozilo se ne može rezervisati dok se ne otkloni neispravnost i ne potvrdi njegova tehnička ispravnost.
+\end{itemize}
