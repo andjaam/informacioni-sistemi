@@ -1,0 +1,208 @@
+<mxfile host="app.diagrams.net" agent="ChatGPT">
+  <diagram id="rentacar-use-cases" name="Dijagram slučajeva upotrebe">
+    <mxGraphModel dx="1800" dy="1077" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1800" pageHeight="1250" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="system" parent="1" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;dashPattern=8 4;strokeWidth=2;strokeColor=#555555;fillColor=none;verticalAlign=top;align=center;fontStyle=1;fontSize=18;spacingTop=10;" value="Rent-a-car sistem" vertex="1">
+          <mxGeometry height="1040" width="1120" x="300" y="55" as="geometry" />
+        </mxCell>
+        <mxCell id="employee_head" parent="1" style="shape=ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#ffffff;strokeColor=#222222;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="26" width="26" x="132" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="employee_body" edge="1" parent="1" style="endArrow=none;startArrow=none;html=1;strokeColor=#222222;strokeWidth=2;rounded=0;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="145" y="506" as="sourcePoint" />
+            <mxPoint x="145" y="552" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="employee_arms" edge="1" parent="1" style="endArrow=none;startArrow=none;html=1;strokeColor=#222222;strokeWidth=2;rounded=0;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="118" y="523" as="sourcePoint" />
+            <mxPoint x="172" y="523" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="employee_leg1" edge="1" parent="1" style="endArrow=none;startArrow=none;html=1;strokeColor=#222222;strokeWidth=2;rounded=0;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="145" y="552" as="sourcePoint" />
+            <mxPoint x="122" y="585" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="employee_leg2" edge="1" parent="1" style="endArrow=none;startArrow=none;html=1;strokeColor=#222222;strokeWidth=2;rounded=0;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="145" y="552" as="sourcePoint" />
+            <mxPoint x="168" y="585" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="employee_label" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontStyle=1;fontSize=16;" value="Zaposleni" vertex="1">
+          <mxGeometry height="30" width="110" x="90" y="590" as="geometry" />
+        </mxCell>
+        <mxCell id="customer_head" parent="1" style="shape=ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#ffffff;strokeColor=#222222;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="26" width="26" x="1567" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="customer_body" edge="1" parent="1" style="endArrow=none;startArrow=none;html=1;strokeColor=#222222;strokeWidth=2;rounded=0;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1580" y="506" as="sourcePoint" />
+            <mxPoint x="1580" y="552" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="customer_arms" edge="1" parent="1" style="endArrow=none;startArrow=none;html=1;strokeColor=#222222;strokeWidth=2;rounded=0;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1553" y="523" as="sourcePoint" />
+            <mxPoint x="1607" y="523" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="customer_leg1" edge="1" parent="1" style="endArrow=none;startArrow=none;html=1;strokeColor=#222222;strokeWidth=2;rounded=0;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1580" y="552" as="sourcePoint" />
+            <mxPoint x="1557" y="585" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="customer_leg2" edge="1" parent="1" style="endArrow=none;startArrow=none;html=1;strokeColor=#222222;strokeWidth=2;rounded=0;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1580" y="552" as="sourcePoint" />
+            <mxPoint x="1603" y="585" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="customer_label" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontStyle=1;fontSize=16;" value="Kupac" vertex="1">
+          <mxGeometry height="30" width="110" x="1525" y="590" as="geometry" />
+        </mxCell>
+        <mxCell id="emp_login" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1f0ff;strokeColor=#4a78a8;strokeWidth=1.5;fontSize=12;align=center;verticalAlign=middle;spacing=5;" value="Prijava zaposlenog" vertex="1">
+          <mxGeometry height="68" width="245" x="355" y="115" as="geometry" />
+        </mxCell>
+        <mxCell id="emp_create_user" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1f0ff;strokeColor=#4a78a8;strokeWidth=1.5;fontSize=12;align=center;verticalAlign=middle;spacing=5;" value="Kreiranje korisnika" vertex="1">
+          <mxGeometry height="68" width="245" x="355" y="225" as="geometry" />
+        </mxCell>
+        <mxCell id="emp_edit_user" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1f0ff;strokeColor=#4a78a8;strokeWidth=1.5;fontSize=12;align=center;verticalAlign=middle;spacing=5;" value="Izmena podataka korisnika" vertex="1">
+          <mxGeometry height="68" width="245" x="355" y="335" as="geometry" />
+        </mxCell>
+        <mxCell id="emp_delete_user" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1f0ff;strokeColor=#4a78a8;strokeWidth=1.5;fontSize=12;align=center;verticalAlign=middle;spacing=5;" value="Brisanje korisnika" vertex="1">
+          <mxGeometry height="68" width="245" x="355" y="445" as="geometry" />
+        </mxCell>
+        <mxCell id="emp_search_user" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1f0ff;strokeColor=#4a78a8;strokeWidth=1.5;fontSize=12;align=center;verticalAlign=middle;spacing=5;" value="Pretraga korisnika" vertex="1">
+          <mxGeometry height="68" width="245" x="355" y="555" as="geometry" />
+        </mxCell>
+        <mxCell id="emp_create_rent" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1f0ff;strokeColor=#4a78a8;strokeWidth=1.5;fontSize=12;align=center;verticalAlign=middle;spacing=5;" value="Kreiranje iznajmljivanja&lt;br&gt;(za kupca)" vertex="1">
+          <mxGeometry height="68" width="245" x="355" y="665" as="geometry" />
+        </mxCell>
+        <mxCell id="emp_edit_rent" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1f0ff;strokeColor=#4a78a8;strokeWidth=1.5;fontSize=12;align=center;verticalAlign=middle;spacing=5;" value="Izmena iznajmljivanja" vertex="1">
+          <mxGeometry height="68" width="245" x="355" y="775" as="geometry" />
+        </mxCell>
+        <mxCell id="emp_search_rent" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1f0ff;strokeColor=#4a78a8;strokeWidth=1.5;fontSize=12;align=center;verticalAlign=middle;spacing=5;" value="Pretraga iznajmljivanja" vertex="1">
+          <mxGeometry height="68" width="245" x="355" y="885" as="geometry" />
+        </mxCell>
+        <mxCell id="emp_cancel_rent" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1f0ff;strokeColor=#4a78a8;strokeWidth=1.5;fontSize=12;align=center;verticalAlign=middle;spacing=5;" value="Otkazivanje iznajmljivanja" vertex="1">
+          <mxGeometry height="68" width="245" x="355" y="995" as="geometry" />
+        </mxCell>
+        <mxCell id="emp_overdue" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1f0ff;strokeColor=#4a78a8;strokeWidth=1.5;fontSize=12;align=center;verticalAlign=middle;spacing=5;" value="Evidentiranje prekoračenja&lt;br&gt;roka vraćanja" vertex="1">
+          <mxGeometry height="68" width="245" x="755" y="115" as="geometry" />
+        </mxCell>
+        <mxCell id="emp_add_vehicle" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1f0ff;strokeColor=#4a78a8;strokeWidth=1.5;fontSize=12;align=center;verticalAlign=middle;spacing=5;" value="Dodavanje novog vozila" vertex="1">
+          <mxGeometry height="68" width="245" x="755" y="225" as="geometry" />
+        </mxCell>
+        <mxCell id="emp_edit_vehicle" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1f0ff;strokeColor=#4a78a8;strokeWidth=1.5;fontSize=12;align=center;verticalAlign=middle;spacing=5;" value="Izmena podataka o vozilu" vertex="1">
+          <mxGeometry height="68" width="245" x="755" y="335" as="geometry" />
+        </mxCell>
+        <mxCell id="emp_delete_vehicle" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1f0ff;strokeColor=#4a78a8;strokeWidth=1.5;fontSize=12;align=center;verticalAlign=middle;spacing=5;" value="Brisanje / deaktivacija vozila" vertex="1">
+          <mxGeometry height="68" width="245" x="755" y="445" as="geometry" />
+        </mxCell>
+        <mxCell id="emp_fault" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1f0ff;strokeColor=#4a78a8;strokeWidth=1.5;fontSize=12;align=center;verticalAlign=middle;spacing=5;" value="Evidentiranje tehničke&lt;br&gt;neispravnosti" vertex="1">
+          <mxGeometry height="68" width="245" x="755" y="555" as="geometry" />
+        </mxCell>
+        <mxCell id="search_vehicle" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=1.5;fontSize=12;align=center;verticalAlign=middle;spacing=5;" value="Pretraga vozila" vertex="1">
+          <mxGeometry height="75" width="245" x="755" y="690" as="geometry" />
+        </mxCell>
+        <mxCell id="cust_register" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=1.5;fontSize=12;align=center;verticalAlign=middle;spacing=5;" value="Registracija" vertex="1">
+          <mxGeometry height="68" width="245" x="1080" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="cust_login" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=1.5;fontSize=12;align=center;verticalAlign=middle;spacing=5;" value="Prijava (logovanje)" vertex="1">
+          <mxGeometry height="68" width="245" x="750" y="810" as="geometry" />
+        </mxCell>
+        <mxCell id="cust_create_res" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=1.5;fontSize=12;align=center;verticalAlign=middle;spacing=5;" value="Kreiranje rezervacije" vertex="1">
+          <mxGeometry height="68" width="245" x="1080" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="cust_edit_res" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=1.5;fontSize=12;align=center;verticalAlign=middle;spacing=5;" value="Izmena rezervacije" vertex="1">
+          <mxGeometry height="68" width="245" x="1080" y="555" as="geometry" />
+        </mxCell>
+        <mxCell id="cust_cancel_res" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=1.5;fontSize=12;align=center;verticalAlign=middle;spacing=5;" value="Otkazivanje rezervacije" vertex="1">
+          <mxGeometry height="68" width="245" x="1080" y="785" as="geometry" />
+        </mxCell>
+        <mxCell id="cust_profile" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=1.5;fontSize=12;align=center;verticalAlign=middle;spacing=5;" value="Izmena profila" vertex="1">
+          <mxGeometry height="68" width="245" x="1080" y="900" as="geometry" />
+        </mxCell>
+        <mxCell id="e_emp_0" edge="1" parent="1" source="employee_label" style="edgeStyle=none;html=1;rounded=0;strokeColor=#333333;strokeWidth=1.2;endArrow=none;startArrow=none;" target="emp_login" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_emp_1" edge="1" parent="1" source="employee_label" style="edgeStyle=none;html=1;rounded=0;strokeColor=#333333;strokeWidth=1.2;endArrow=none;startArrow=none;" target="emp_create_user" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_emp_2" edge="1" parent="1" source="employee_label" style="edgeStyle=none;html=1;rounded=0;strokeColor=#333333;strokeWidth=1.2;endArrow=none;startArrow=none;" target="emp_edit_user" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_emp_3" edge="1" parent="1" source="employee_label" style="edgeStyle=none;html=1;rounded=0;strokeColor=#333333;strokeWidth=1.2;endArrow=none;startArrow=none;" target="emp_delete_user" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_emp_4" edge="1" parent="1" source="employee_label" style="edgeStyle=none;html=1;rounded=0;strokeColor=#333333;strokeWidth=1.2;endArrow=none;startArrow=none;" target="emp_search_user" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_emp_5" edge="1" parent="1" source="employee_label" style="edgeStyle=none;html=1;rounded=0;strokeColor=#333333;strokeWidth=1.2;endArrow=none;startArrow=none;" target="emp_create_rent" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_emp_6" edge="1" parent="1" source="employee_label" style="edgeStyle=none;html=1;rounded=0;strokeColor=#333333;strokeWidth=1.2;endArrow=none;startArrow=none;" target="emp_edit_rent" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_emp_7" edge="1" parent="1" source="employee_label" style="edgeStyle=none;html=1;rounded=0;strokeColor=#333333;strokeWidth=1.2;endArrow=none;startArrow=none;" target="emp_search_rent" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_emp_8" edge="1" parent="1" source="employee_label" style="edgeStyle=none;html=1;rounded=0;strokeColor=#333333;strokeWidth=1.2;endArrow=none;startArrow=none;" target="emp_cancel_rent" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_emp_9" edge="1" parent="1" source="employee_label" style="edgeStyle=none;html=1;rounded=0;strokeColor=#333333;strokeWidth=1.2;endArrow=none;startArrow=none;" target="emp_overdue" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_emp_10" edge="1" parent="1" source="employee_label" style="edgeStyle=none;html=1;rounded=0;strokeColor=#333333;strokeWidth=1.2;endArrow=none;startArrow=none;" target="emp_add_vehicle" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_emp_11" edge="1" parent="1" source="employee_label" style="edgeStyle=none;html=1;rounded=0;strokeColor=#333333;strokeWidth=1.2;endArrow=none;startArrow=none;" target="emp_edit_vehicle" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_emp_12" edge="1" parent="1" source="employee_label" style="edgeStyle=none;html=1;rounded=0;strokeColor=#333333;strokeWidth=1.2;endArrow=none;startArrow=none;" target="emp_delete_vehicle" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_emp_13" edge="1" parent="1" source="employee_label" style="edgeStyle=none;html=1;rounded=0;strokeColor=#333333;strokeWidth=1.2;endArrow=none;startArrow=none;" target="emp_fault" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_emp_14" edge="1" parent="1" source="employee_label" style="edgeStyle=none;html=1;rounded=0;strokeColor=#333333;strokeWidth=1.2;endArrow=none;startArrow=none;" target="search_vehicle" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_cust_0" edge="1" parent="1" source="customer_label" style="edgeStyle=none;html=1;rounded=0;strokeColor=#333333;strokeWidth=1.2;endArrow=none;startArrow=none;" target="cust_register" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_cust_1" edge="1" parent="1" source="customer_label" style="edgeStyle=none;html=1;rounded=0;strokeColor=#333333;strokeWidth=1.2;endArrow=none;startArrow=none;entryX=0.978;entryY=0.364;entryDx=0;entryDy=0;entryPerimeter=0;" target="cust_login" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_cust_2" edge="1" parent="1" source="customer_label" style="edgeStyle=none;html=1;rounded=0;strokeColor=#333333;strokeWidth=1.2;endArrow=none;startArrow=none;" target="cust_create_res" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_cust_3" edge="1" parent="1" source="customer_label" style="edgeStyle=none;html=1;rounded=0;strokeColor=#333333;strokeWidth=1.2;endArrow=none;startArrow=none;" target="cust_edit_res" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_cust_4" edge="1" parent="1" source="customer_label" style="edgeStyle=none;html=1;rounded=0;strokeColor=#333333;strokeWidth=1.2;endArrow=none;startArrow=none;" target="cust_cancel_res" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_cust_5" edge="1" parent="1" source="customer_label" style="edgeStyle=none;html=1;rounded=0;strokeColor=#333333;strokeWidth=1.2;endArrow=none;startArrow=none;" target="cust_profile" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_cust_6" edge="1" parent="1" source="customer_label" style="edgeStyle=none;html=1;rounded=0;strokeColor=#333333;strokeWidth=1.2;endArrow=none;startArrow=none;" target="search_vehicle" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="oLoSoQs4IIjSrL-KxCfm-4" edge="1" parent="1" source="employee_label" style="endArrow=none;html=1;rounded=0;defaultLabelBackgroundColor=page;labelPadding=0 4;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0.75;exitY=1;exitDx=0;exitDy=0;" target="cust_login" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="640" y="820" as="sourcePoint" />
+            <mxPoint x="690" y="770" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
