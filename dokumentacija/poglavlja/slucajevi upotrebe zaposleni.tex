@@ -1,0 +1,344 @@
+
+\documentclass[12pt,a4paper]{article}
+
+% =====================================================
+% PAKETI I PODESAVANJA
+% =====================================================
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[serbian]{babel}
+\usepackage{lmodern}
+
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{setspace}
+
+\onehalfspacing
+\setlist{itemsep=2pt,topsep=4pt}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    urlcolor=blue,
+    citecolor=black
+}
+
+\begin{document}
+
+% =====================================================
+% UVOD
+% =====================================================
+
+\section*{Uvod}
+
+Dokument opisuje tri slučaja upotrebe informacionog sistema za
+rent-a-car agenciju: upravljanje korisnicima, upravljanje iznajmljivanjima
+i preuzimanje i vraćanje vozila. Za svaki slučaj navedeni su akteri,
+preduslovi, osnovni i alternativni tokovi, kao i postuslov.
+
+
+% =====================================================
+% 1. SLUCAJ UPOTREBE
+% =====================================================
+
+\section*{1. Slučaj upotrebe: Upravljanje korisnicima}
+
+\subsection*{Kratak opis}
+
+Zaposleni koristi aplikaciju za upravljanje podacima o korisnicima. Može da
+kreira novog korisnika, pregleda i pretražuje postojeće korisnike, menja njihove
+podatke i briše, odnosno deaktivira zapis kada za to postoje uslovi.
+
+\subsection*{Akteri}
+
+\begin{itemize}
+    \item Zaposleni -- radnik rent-a-car agencije koji koristi aplikaciju.
+\end{itemize}
+
+\subsection*{Preduslov}
+
+\begin{itemize}
+    \item Zaposleni mora imati kreiran nalog.
+    \item Zaposleni mora biti uspešno prijavljen u sistem.
+\end{itemize}
+
+\subsection*{Osnovni tok}
+
+\begin{enumerate}
+    \item Zaposleni otvara sekciju „Upravljanje korisnicima“.
+    \item Sistem prikazuje listu evidentiranih korisnika i dostupne opcije.
+    \item Zaposleni unosi kriterijum za pretragu ili bira opciju za dodavanje korisnika.
+    \item Sistem prikazuje rezultate pretrage ili formu za unos novog korisnika.
+    \item Zaposleni bira postojećeg korisnika radi pregleda, izmene ili brisanja,
+    odnosno unosi podatke novog korisnika.
+    \item Zaposleni unosi ili menja tražene podatke i potvrđuje akciju.
+    \item Ako je izabrano brisanje, sistem traži dodatnu potvrdu.
+    \item Sistem proverava ispravnost podataka i uslove za izmenu ili brisanje.
+    \item Sistem čuva promene u bazi podataka i prikazuje rezultat akcije.
+\end{enumerate}
+
+
+\subsection*{Alternativni tokovi}
+
+\begin{description}[style=nextline]
+
+    \item[A1: Korisnik nije pronađen.]
+    Sistem prikazuje poruku da nema korisnika koji odgovaraju kriterijumu pretrage.
+    Zaposleni se vraća na korak 3 i unosi novi kriterijum ili bira dodavanje korisnika.
+
+    \item[A2: Neispravni ili nepotpuni podaci.]
+    Prilikom provere (korak 8) sistem prikazuje grešku i označava polja koja treba ispraviti ili dopuniti. Zaposleni se vraća na korak 5 i ponavlja unos.
+
+    \item[A3: Korisnik već postoji.]
+    Prilikom provere (korak 8) sistem utvrđuje da korisnik postoji, prikazuje upozorenje i ne kreira duplikat. Zaposleni se vraća na korak 5 da ispravi podatke, a može i da odustane (A5).
+
+    \item[A4: Korisnik ima aktivno iznajmljivanje.]
+    Prilikom provere brisanja (korak 8) sistem ne dozvoljava brisanje dok postoji aktivno iznajmljivanje i prikazuje poruku. Zaposleni se vraća na korak 5 i bira drugu akciju ili drugog korisnika, a može i da odustane (A5).
+
+    \item[A5: Odustajanje od akcije.]
+    Zaposleni ne potvrđuje akciju (korak 6 ili 7). Sistem ne čuva izmene, baza ostaje nepromenjena i tok se završava. Zaposleni ostaje na pregledu korisnika.
+
+\end{description}
+
+
+\subsection*{Postuslov}
+
+Podaci o korisniku su kreirani, pregledani, izmenjeni ili deaktivirani.
+Ako je akcija otkazana ili nije uspešna, baza ostaje nepromenjena.
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{upravljanje korisnicima.jpg}
+    \caption{Dijagram slučaja upotrebe za upravljanje korisnicima}
+    \label{fig:uml-korisnici}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{dijagram_aktivnosti_korisnici.png}
+    \caption{Dijagram aktivnosti korisnika}
+    \label{fig:aktivnosti-korisnici}
+\end{figure}
+
+% 2. SLUCAJ UPOTREBE
+% =====================================================
+
+\section*{2. Slučaj upotrebe: Upravljanje iznajmljivanjima}
+
+\subsection*{Kratak opis}
+
+Zaposleni upravlja iznajmljivanjima vozila. Može da pretraži postojeća
+iznajmljivanja, kreira novo iznajmljivanje za korisnika (uz proveru
+dostupnosti vozila i obračun cene), izmeni njegove podatke ili ga
+otkaže kada je to dozvoljeno.
+
+\subsection*{Akteri}
+
+\begin{itemize}
+    \item Zaposleni -- radnik rent-a-car agencije koji evidentira i ažurira iznajmljivanja.
+\end{itemize}
+
+\subsection*{Preduslov}
+
+\begin{itemize}
+    \item Zaposleni mora biti uspešno prijavljen u sistem.
+    \item Korisnik i vozilo moraju biti evidentirani u sistemu.
+\end{itemize}
+
+\subsection*{Osnovni tok (kreiranje novog iznajmljivanja)}
+
+\begin{enumerate}
+    \item Zaposleni otvara sekciju „Upravljanje iznajmljivanjima“.
+    \item Sistem prikazuje listu iznajmljivanja i dostupne opcije.
+    \item Zaposleni bira korisnika, vozilo i unosi datum i vreme preuzimanja i vraćanja.
+    \item Sistem proverava ispravnost perioda i podataka.
+    \item Sistem proverava da li je vozilo slobodno u izabranom periodu.
+    \item Ako je vozilo dostupno, sistem obračunava cenu i prikazuje je zaposlenom.
+    \item Zaposleni proverava podatke i potvrđuje iznajmljivanje.
+    \item Sistem čuva iznajmljivanje i dodeljuje mu status „Kreirano“.
+\end{enumerate}
+
+\subsection*{Alternativni tokovi}
+
+\begin{description}[style=nextline]
+
+    \item[A1: Vozilo nije dostupno.]
+    Sistem prikazuje obaveštenje o zauzetosti vozila.
+    Zaposleni se vraća na korak 3 i bira drugo vozilo ili menja period iznajmljivanja.
+
+    \item[A2: Neispravan period.]
+    Sistem prikazuje poruku o grešci da vreme vraćanja mora biti nakon vremena preuzimanja.
+    Zaposleni se vraća na korak 3 i ispravlja period.
+
+    \item[A3: Neispravni ili nepotpuni podaci.]
+    Sistem prikazuje poruku o grešci i označava podatke koje je potrebno ispraviti ili dopuniti.
+    Zaposleni se vraća na korak 3 i ponavlja unos.
+
+    \item[A4: Izmena iznajmljivanja.]
+
+    Zaposleni pretražuje i bira postojeće iznajmljivanje, a sistem proverava njegov status.
+    Ako je akcija dozvoljena, zaposleni bira izmenu i menja dozvoljene podatke.
+    Sistem ponovo proverava dostupnost vozila i obračunava cenu.
+    Zaposleni potvrđuje izmenu.
+    Sistem čuva izmene i prikazuje rezultat.
+
+    \item[A5: Otkazivanje iznajmljivanja.]
+
+    Zaposleni pretražuje i bira postojeće iznajmljivanje, a sistem proverava njegov status.
+    Ako je akcija dozvoljena, zaposleni pokreće otkazivanje i potvrđuje ga.
+    Sistem menja status iznajmljivanja u „Otkazano“ i prikazuje rezultat.
+
+    \item[A6: Nedozvoljena izmena ili otkazivanje.]
+    Ako je iznajmljivanje završeno ili već otkazano, sistem odbija akciju.
+    Tok se završava, a podaci ostaju nepromenjeni.
+
+    \item[A7: Iznajmljivanje nije pronađeno.]
+    Prilikom pretrage (A4, A5) sistem prikazuje poruku da nema rezultata.
+    Zaposleni se vraća na izbor iznajmljivanja i bira drugo.
+
+\end{description}
+
+\subsection*{Postuslov}
+
+Novo iznajmljivanje je sačuvano sa statusom „Kreirano“, postojeće je
+ažurirano ili je dobilo status „Otkazano“. Ako akcija nije uspešno
+završena, podaci ostaju nepromenjeni.
+
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{upravljanje iznajmljivanjima.jpg}
+    \caption{Dijagram slučajeva upravljanje iznajmljivanjima}
+    \label{fig:aktivnosti-kreiranje-iznajmljivanja}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{dijagram aktivnosti iznajmljivanja.png}
+    \caption{Dijagram aktivnosti iznajmljivanja}
+    \label{fig:aktivnosti-izmena-otkazivanje}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{dijagram aktivnosti izemena i otkazivanje (1).png}
+    \caption{Dijagram aktivnosti izmene i otkazivanja}
+    \label{fig:stanja-iznajmljivanja}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{dijagram stanja iznajmljivanja.png}
+    \caption{Dijagram stanja iznajmljivanja}
+    \label{fig:stanja-iznajmljivanja}
+\end{figure}
+
+
+
+% =====================================================
+% 3. SLUCAJ UPOTREBE
+% =====================================================
+
+\section*{3. Slučaj upotrebe: Preuzimanje i vraćanje vozila}
+
+\subsection*{Kratak opis}
+
+Zaposleni evidentira predaju vozila korisniku i njegovo vraćanje nakon završetka
+iznajmljivanja. Prilikom preuzimanja i vraćanja proverava stanje vozila,
+evidentira eventualna oštećenja i proverava da li je vozilo vraćeno u
+ugovorenom roku. Ako postoji kašnjenje, sistem obračunava penale prema
+definisanim pravilima.
+
+\subsection*{Akteri}
+
+\begin{itemize}
+    \item Zaposleni -- radnik koji predaje vozilo korisniku i evidentira njegovo vraćanje.
+\end{itemize}
+
+\subsection*{Preduslov}
+
+\begin{itemize}
+    \item Zaposleni mora biti uspešno prijavljen u sistem.
+    \item Za preuzimanje mora postojati odgovarajuće iznajmljivanje u statusu „Kreirano“.
+    \item Za vraćanje mora postojati aktivno iznajmljivanje.
+    \item Vozilo mora biti evidentirano u sistemu.
+\end{itemize}
+
+\subsection*{Osnovni tok}
+
+\begin{enumerate}
+    \item Zaposleni otvara sekciju „Preuzimanje i vraćanje vozila“.
+    \item Zaposleni pronalazi iznajmljivanje, a sistem prikazuje podatke o korisniku,
+    vozilu i periodu iznajmljivanja.
+    \item Prilikom preuzimanja zaposleni pregleda vozilo, evidentira početno stanje
+    i predaje vozilo korisniku.
+    \item Sistem čuva podatke o pregledu i menja status iznajmljivanja u „Aktivno“.
+    \item Prilikom vraćanja zaposleni pronalazi aktivno iznajmljivanje i evidentira
+    stvarni datum i vreme vraćanja, kao i stanje vozila nakon korišćenja.
+    \item Ako je uočeno oštećenje, zaposleni ga evidentira.
+    \item Sistem upoređuje stvarno vreme vraćanja sa ugovorenim rokom.
+    \item Ako postoji kašnjenje, sistem ga evidentira i obračunava penale prema pravilima.
+    \item Sistem čuva podatke o vraćanju, oštećenjima i penalima.
+    \item Sistem menja status iznajmljivanja u „Završeno“ i ažurira dostupnost vozila.
+\end{enumerate}
+
+\subsection*{Alternativni tokovi}
+
+\begin{description}[style=nextline]
+
+    \item[A1: Ne postoji odgovarajuće iznajmljivanje.]
+    Nakon pretrage (korak 2) sistem obaveštava zaposlenog da za izabranog korisnika
+    ili vozilo ne postoji odgovarajuće iznajmljivanje. Tok se završava, a podaci
+    ostaju nepromenjeni.
+
+    \item[A2: Uočeno je oštećenje.]
+    U koraku 6 zaposleni opisuje oštećenje i unosi potrebne podatke. Sistem čuva
+    zapis povezan sa vozilom i iznajmljivanjem zajedno sa podacima o vraćanju
+    (korak 9), a tok se nastavlja korakom 7.
+
+    \item[A3: Vozilo je vraćeno nakon roka.]
+    U koraku 8 sistem utvrđuje trajanje kašnjenja, obračunava penale i prikazuje
+    iznos zaposlenom. Tok se nastavlja korakom 9.
+
+    \item[A4: Nije moguće obračunati penale.]
+    Ako prilikom obračuna (korak 8) tarifa nije definisana, sistem obaveštava
+    zaposlenog da je potrebna dopuna podataka ili ručni postupak. Nakon toga se
+    tok nastavlja korakom 9.
+
+    \item[A5: Nema oštećenja i nema kašnjenja.]
+    Nema oštećenja (korak 6) i nema kašnjenja (korak 8), pa se preskaču
+    obračun penala i evidentiranje oštećenja. Sistem evidentira uredno vraćanje
+    bez dodatnih troškova, a tok se nastavlja korakom 9.
+
+\end{description}
+
+\subsection*{Postuslov}
+
+Preuzimanje ili vraćanje vozila je evidentirano. Nakon preuzimanja iznajmljivanje
+dobija status „Aktivno“, a nakon vraćanja status „Završeno“. Vozilo se označava
+kao dostupno ako nema drugih razloga koji to sprečavaju. Podaci o oštećenjima i
+penalima čuvaju se uz odgovarajuće iznajmljivanje.
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{preuzimanje i vracanje vozila.jpg}
+    \caption{Dijagram slučaja za preuzimanje i vraćanje vozila}
+    \label{fig:aktivnosti-kreiranje-iznajmljivanja}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{dijagram aktivnosti vracanje vozila.png}
+    \caption{Dijagram aktivnosti za preuzimanje i vraćanje vozila}
+    \label{fig:aktivnosti-izmena-otkazivanje}
+\end{figure}
+
+
+\end{document}
