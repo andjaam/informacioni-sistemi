@@ -1,0 +1,172 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[serbian]{babel}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{csquotes}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{hyperref}
+
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=cyan}
+
+\begin{document}
+
+\section{Slučajevi upotrebe kupca}
+
+\subsection{Registracija kupca}
+
+\subsubsection{Osnovne informacije}
+
+\begin{itemize}
+    \item \textbf{Naziv:} Registracija kupca
+    \item \textbf{Primarni akter:} Kupac
+    \item \textbf{Cilj:} Omogućiti kupcu da kreira korisnički nalog kako bi mogao da rezerviše vozila putem informacionog sistema.
+\end{itemize}
+
+\subsubsection{Preduslovi}
+
+\begin{itemize}
+    \item Kupac ima pristup veb aplikaciji rent-a-car agencije.
+    \item Kupac nema kreiran korisnički nalog u sistemu.
+\end{itemize}
+
+\subsubsection{Osnovni tok događaja}
+
+\begin{enumerate}
+    \item Kupac pristupa veb aplikaciji i bira opciju za registraciju.
+    \item Sistem prikazuje formular za registraciju.
+    \item Kupac unosi lične podatke (ime, prezime, datum rođenja, broj telefona, adresa elektronske pošte, broj vozačke dozvole) i lozinku.
+    \item Kupac potvrđuje unos podataka.
+    \item Sistem proverava ispravnost i potpunost unetih podataka.
+    \item Sistem proverava da li već postoji nalog sa unetom adresom elektronske pošte.
+    \item Sistem proverava da li kupac ispunjava uslov minimalne starosti od 18 godina.
+    \item Sistem kreira korisnički nalog sa ulogom kupca i čuva unete podatke.
+    \item Sistem prikazuje poruku o uspešnoj registraciji i omogućava kupcu prijavu na sistem.
+\end{enumerate}
+
+\subsubsection{Alternativni tokovi}
+
+\begin{itemize}
+    \item \textbf{A1 - Neispravni ili nepotpuni podaci:}
+    Ukoliko u koraku 5 sistem utvrdi da neki od obaveznih podataka nije unet ili nije u odgovarajućem formatu (npr. neispravna adresa elektronske pošte ili lozinka kraća od 8 karaktera), sistem prikazuje poruku o grešci i označava neispravna polja. Tok se nastavlja od koraka 3.
+
+    \item \textbf{A2 - Nalog već postoji:}
+    Ukoliko u koraku 6 sistem utvrdi da nalog sa unetom adresom elektronske pošte već postoji, sistem prikazuje odgovarajuću poruku. Kupac može da unese drugu adresu elektronske pošte (tok se nastavlja od koraka 3) ili da pređe na prijavu na sistem.
+
+    \item \textbf{A3 - Kupac ne ispunjava uslov starosti:}
+    Ukoliko u koraku 7 sistem utvrdi da kupac nije punoletan, sistem obaveštava kupca da registracija nije moguća i slučaj upotrebe se završava.
+
+    \item \textbf{A4 - Odustajanje od registracije:}
+    Kupac može da odustane od registracije pre potvrde unosa u koraku 4. Sistem prekida postupak i ne čuva unete podatke.
+\end{itemize}
+
+\subsubsection{Postuslovi}
+
+\begin{itemize}
+    \item Korisnički nalog kupca je kreiran i sačuvan u sistemu.
+    \item Nalog ima status \texttt{AKTIVAN}, a lozinka je sačuvana u zaštićenom obliku.
+    \item Kupac može da se prijavi na sistem i kreira rezervacije.
+\end{itemize}
+
+\newpage
+
+\subsection{Prijava kupca na sistem}
+
+\subsubsection{Osnovne informacije}
+
+\begin{itemize}
+    \item \textbf{Naziv:} Prijava kupca na sistem
+    \item \textbf{Primarni akter:} Kupac
+    \item \textbf{Cilj:} Omogućiti registrovanom kupcu da pristupi svom nalogu i funkcionalnostima koje zahtevaju prijavu.
+\end{itemize}
+
+\subsubsection{Preduslovi}
+
+\begin{itemize}
+    \item Kupac ima kreiran korisnički nalog u sistemu.
+    \item Kupac nije prijavljen na sistem.
+\end{itemize}
+
+\subsubsection{Osnovni tok događaja}
+
+\begin{enumerate}
+    \item Kupac bira opciju za prijavu na sistem.
+    \item Sistem prikazuje formu za prijavu.
+    \item Kupac unosi adresu elektronske pošte i lozinku.
+    \item Kupac potvrđuje prijavu.
+    \item Sistem proverava da li uneti podaci odgovaraju postojećem nalogu.
+    \item Sistem proverava da li je nalog aktivan.
+    \item Sistem prijavljuje kupca i prikazuje početnu stranu sa ponudom vozila i pristupom rezervacijama i profilu.
+\end{enumerate}
+
+\subsubsection{Alternativni tokovi}
+
+\begin{itemize}
+    \item \textbf{A1 - Pogrešni podaci za prijavu:}
+    Ukoliko u koraku 5 sistem utvrdi da adresa elektronske pošte ili lozinka nisu ispravni, sistem prikazuje poruku da prijava nije uspela, bez navođenja koji je podatak pogrešan. Tok se nastavlja od koraka 3.
+
+    \item \textbf{A2 - Nalog je deaktiviran:}
+    Ukoliko u koraku 6 sistem utvrdi da je nalog kupca deaktiviran od strane zaposlenog, sistem obaveštava kupca da prijava nije moguća i upućuje ga da kontaktira agenciju. Slučaj upotrebe se završava.
+
+    \item \textbf{A3 - Odustajanje od prijave:}
+    Kupac može da odustane od prijave pre potvrde u koraku 4. Sistem prekida postupak.
+\end{itemize}
+
+\subsubsection{Postuslovi}
+
+\begin{itemize}
+    \item Kupac je prijavljen na sistem i ima pristup funkcionalnostima namenjenim kupcima.
+    \item Kupac može u svakom trenutku da se odjavi sa sistema, čime se njegova sesija završava.
+\end{itemize}
+
+\newpage
+
+\subsection{Pretraga vozila od strane kupca}
+
+\subsubsection{Osnovne informacije}
+
+\begin{itemize}
+    \item \textbf{Naziv:} Pretraga vozila od strane kupca
+    \item \textbf{Primarni akter:} Kupac
+    \item \textbf{Cilj:} Omogućiti kupcu da pronađe vozila koja su dostupna za iznajmljivanje u željenom vremenskom periodu.
+\end{itemize}
+
+\subsubsection{Preduslovi}
+
+\begin{itemize}
+    \item Kupac ima pristup veb aplikaciji rent-a-car agencije. Prijava na sistem nije neophodna za pretragu.
+\end{itemize}
+
+\subsubsection{Osnovni tok događaja}
+
+\begin{enumerate}
+    \item Kupac pristupa ponudi vozila.
+    \item Sistem prikazuje formu za pretragu.
+    \item Kupac unosi period najma (datum i vreme preuzimanja i vraćanja vozila) i, po želji, dodatne kriterijume (kategorija, marka, maksimalna cena po danu).
+    \item Kupac pokreće pretragu.
+    \item Sistem proverava ispravnost unetog perioda.
+    \item Sistem pronalazi vozila sa statusom \texttt{DOSTUPNO} koja nemaju aktivnu rezervaciju niti iznajmljivanje u traženom periodu i koja odgovaraju zadatim kriterijumima.
+    \item Sistem prikazuje listu pronađenih vozila sa cenom po danu i ukupnom cenom za izabrani period.
+    \item Kupac bira vozilo sa liste i pregleda njegove detaljne podatke.
+\end{enumerate}
+
+\subsubsection{Alternativni tokovi}
+
+\begin{itemize}
+    \item \textbf{A1 - Neispravan period najma:}
+    Ukoliko u koraku 5 sistem utvrdi da je datum preuzimanja u prošlosti ili da je datum vraćanja pre datuma preuzimanja, sistem prikazuje poruku o grešci. Tok se nastavlja od koraka 3.
+
+    \item \textbf{A2 - Nema dostupnih vozila:}
+    Ukoliko u koraku 6 nijedno vozilo ne odgovara zadatim kriterijumima, sistem obaveštava kupca da nema dostupnih vozila i predlaže izmenu kriterijuma. Tok se nastavlja od koraka 3.
+\end{itemize}
+
+\subsubsection{Postuslovi}
+
+\begin{itemize}
+    \item Kupcu su prikazana vozila dostupna u traženom periodu.
+    \item Kupac može da pokrene kreiranje rezervacije za izabrano vozilo.
+\end{itemize}
+
+\end{document}
