@@ -169,4 +169,136 @@
     \item Kupac može da pokrene kreiranje rezervacije za izabrano vozilo.
 \end{itemize}
 
+\newpage
+
+\subsection{Upravljanje rezervacijama od strane kupca}
+
+\subsubsection{Osnovne informacije}
+
+\begin{itemize}
+    \item \textbf{Naziv:} Upravljanje rezervacijama od strane kupca
+    \item \textbf{Primarni akter:} Kupac
+    \item \textbf{Cilj:} Omogućiti kupcu da rezerviše izabrano vozilo za željeni period, pregleda svoje rezervacije, izmeni period postojeće rezervacije ili je otkaže.
+\end{itemize}
+
+\subsubsection{Preduslovi}
+
+\begin{itemize}
+    \item Kupac je prijavljen na sistem.
+    \item Za kreiranje rezervacije kupac je pretragom pronašao i izabrao vozilo dostupno u željenom periodu.
+    \item Za izmenu ili otkazivanje u sistemu postoji rezervacija tog kupca sa statusom \enquote{Kreirano}.
+\end{itemize}
+
+\subsubsection{Osnovni tok događaja (kreiranje rezervacije)}
+
+\begin{enumerate}
+    \item Kupac na stranici sa detaljima izabranog vozila bira opciju za rezervaciju.
+    \item Sistem prikazuje pregled rezervacije: podatke o vozilu, period najma iz pretrage, cenu po danu i ukupnu cenu.
+    \item Kupac proverava podatke i potvrđuje rezervaciju.
+    \item Sistem ponovo proverava da li je vozilo dostupno u izabranom periodu.
+    \item Sistem obračunava ukupnu cenu kao proizvod broja dana najma i cene po danu, pri čemu se započeti dan računa kao ceo.
+    \item Sistem čuva rezervaciju sa statusom \enquote{Kreirano} i povezuje je sa kupcem i vozilom.
+    \item Sistem prikazuje poruku o uspešnoj rezervaciji sa brojem rezervacije, periodom najma i ukupnom cenom, koja se plaća prilikom preuzimanja vozila u agenciji.
+\end{enumerate}
+
+\subsubsection{Alternativni tokovi}
+
+\begin{itemize}
+    \item \textbf{A1 - Kupac nije prijavljen:}
+    Ukoliko u koraku 1 kupac nije prijavljen na sistem, sistem ga upućuje na prijavu. Nakon uspešne prijave tok se nastavlja od koraka 2. Ukoliko kupac nema nalog, može da pređe na registraciju.
+
+    \item \textbf{A2 - Vozilo više nije dostupno:}
+    Ukoliko u koraku 4 sistem utvrdi da je vozilo u međuvremenu rezervisano ili da više nema status \texttt{DOSTUPNO}, sistem obaveštava kupca da rezervacija nije moguća i vraća ga na rezultate pretrage. Slučaj upotrebe se završava.
+
+    \item \textbf{A3 - Odustajanje od rezervacije:}
+    Kupac može da odustane pre potvrde u koraku 3. Sistem ne čuva rezervaciju.
+
+    \item \textbf{A4 - Pregled rezervacija:}
+    Kupac bira opciju \enquote{Moje rezervacije}. Sistem prikazuje listu aktivnih i prethodnih rezervacija kupca sa vozilom, periodom, ukupnom cenom i statusom. Kupac može da izabere rezervaciju i pregleda njene detalje, kao i da pokrene izmenu (A5) ili otkazivanje (A6).
+
+    \item \textbf{A5 - Izmena rezervacije:}
+    Kupac u pregledu rezervacija bira rezervaciju i opciju za izmenu. Sistem proverava da li je izmena dozvoljena i prikazuje formu sa trenutnim periodom najma. Kupac unosi novi period i potvrđuje izmenu. Sistem proverava ispravnost perioda i dostupnost istog vozila u novom periodu, ne računajući samu rezervaciju koja se menja. Sistem obračunava novu ukupnu cenu, čuva izmenu i prikazuje ažurirane podatke. Rezervacija zadržava status \enquote{Kreirano}. Za drugo vozilo kupac otkazuje postojeću rezervaciju i kreira novu.
+
+    \item \textbf{A6 - Otkazivanje rezervacije:}
+    Kupac u pregledu rezervacija bira rezervaciju i opciju za otkazivanje. Sistem proverava da li je otkazivanje dozvoljeno i traži od kupca potvrdu. Kupac potvrđuje otkazivanje. Sistem menja status rezervacije u \enquote{Otkazano}, čime vozilo ponovo postaje dostupno u tom periodu, i prikazuje poruku o uspešnom otkazivanju.
+
+    \item \textbf{A7 - Izmena ili otkazivanje nisu dozvoljeni:}
+    Ukoliko u toku A5 ili A6 sistem utvrdi da rezervacija nema status \enquote{Kreirano} (vozilo je već preuzeto, najam je završen ili je rezervacija otkazana) ili da je do preuzimanja vozila ostalo manje od 24 sata, sistem odbija akciju i upućuje kupca da kontaktira agenciju. Kupac se vraća na pregled rezervacija.
+
+    \item \textbf{A8 - Neispravan novi period ili vozilo nije dostupno:}
+    Ukoliko u toku A5 sistem utvrdi da je novi period neispravan ili da vozilo u tom periodu nije dostupno, sistem prikazuje odgovarajuću poruku. Kupac može da unese drugi period ili da odustane od izmene, pri čemu rezervacija ostaje nepromenjena.
+
+    \item \textbf{A9 - Odustajanje od izmene ili otkazivanja:}
+    Kupac može da odustane pre potvrde izmene ili otkazivanja. Sistem ne čuva promene i rezervacija ostaje nepromenjena.
+\end{itemize}
+
+\subsubsection{Postuslovi}
+
+\begin{itemize}
+    \item Nova rezervacija je sačuvana sa statusom \enquote{Kreirano}, a vozilo je zauzeto u izabranom periodu.
+    \item Kod izmene, rezervacija ima novi period i novu ukupnu cenu.
+    \item Kod otkazivanja, rezervacija ima status \enquote{Otkazano}, a vozilo je ponovo dostupno u tom periodu.
+    \item Ukoliko akcija nije potvrđena ili nije uspela, podaci o rezervacijama ostaju nepromenjeni.
+\end{itemize}
+
+\newpage
+
+\subsection{Izmena profila kupca}
+
+\subsubsection{Osnovne informacije}
+
+\begin{itemize}
+    \item \textbf{Naziv:} Izmena profila kupca
+    \item \textbf{Primarni akter:} Kupac
+    \item \textbf{Cilj:} Omogućiti kupcu da ažurira svoje kontakt podatke, podatke o vozačkoj dozvoli i lozinku.
+\end{itemize}
+
+\subsubsection{Preduslovi}
+
+\begin{itemize}
+    \item Kupac je prijavljen na sistem.
+\end{itemize}
+
+\subsubsection{Osnovni tok događaja}
+
+\begin{enumerate}
+    \item Kupac bira opciju \enquote{Moj profil}.
+    \item Sistem prikazuje podatke kupca.
+    \item Kupac bira opciju za izmenu profila.
+    \item Sistem prikazuje formu za izmenu. Ime, prezime i datum rođenja su prikazani, ali se ne mogu menjati.
+    \item Kupac menja broj telefona, adresu elektronske pošte ili broj vozačke dozvole.
+    \item Kupac potvrđuje izmene.
+    \item Sistem proverava ispravnost i potpunost unetih podataka.
+    \item Ukoliko je adresa elektronske pošte promenjena, sistem proverava da li je već koristi neki drugi nalog.
+    \item Sistem čuva izmenjene podatke i prikazuje poruku o uspešnoj izmeni.
+\end{enumerate}
+
+\subsubsection{Alternativni tokovi}
+
+\begin{itemize}
+    \item \textbf{A1 - Neispravni ili nepotpuni podaci:}
+    Ukoliko u koraku 7 sistem utvrdi da neki podatak nije unet ili nije u odgovarajućem formatu, sistem prikazuje poruku o grešci i označava neispravna polja. Tok se nastavlja od koraka 5.
+
+    \item \textbf{A2 - Adresa elektronske pošte je zauzeta:}
+    Ukoliko u koraku 8 sistem utvrdi da drugi nalog već koristi unetu adresu elektronske pošte, sistem prikazuje odgovarajuću poruku. Tok se nastavlja od koraka 5.
+
+    \item \textbf{A3 - Promena lozinke:}
+    Kupac u koraku 3 bira opciju za promenu lozinke. Sistem prikazuje formu u koju kupac unosi trenutnu lozinku i dva puta novu lozinku. Sistem proverava da li je trenutna lozinka ispravna, da li nova lozinka ima najmanje 8 karaktera i da li se oba unosa nove lozinke poklapaju. Sistem čuva novu lozinku u zaštićenom obliku i prikazuje poruku o uspešnoj promeni.
+
+    \item \textbf{A4 - Pogrešna trenutna lozinka ili neispravna nova lozinka:}
+    Ukoliko u toku A3 neka od provera nije uspešna, sistem prikazuje poruku o grešci i lozinka se ne menja. Kupac može ponovo da unese podatke ili da odustane.
+
+    \item \textbf{A5 - Odustajanje od izmene:}
+    Kupac može da odustane pre potvrde u koraku 6 ili pre potvrde promene lozinke. Sistem ne čuva izmene.
+\end{itemize}
+
+\subsubsection{Postuslovi}
+
+\begin{itemize}
+    \item Podaci o kupcu su ažurirani u sistemu, odnosno nova lozinka je sačuvana u zaštićenom obliku.
+    \item Ukoliko je promenjena adresa elektronske pošte, kupac se od sledeće prijave prijavljuje novom adresom.
+    \item Ime, prezime i datum rođenja može da izmeni samo zaposleni, u okviru upravljanja korisnicima.
+    \item Ukoliko izmena nije potvrđena ili nije uspela, podaci ostaju nepromenjeni.
+\end{itemize}
+
 \end{document}
